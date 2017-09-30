@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Lato|Lobster|Marck+Script|Mogra|Oswald|Pacifico|Permanent+Marker|Satisfy|Vibur" rel="stylesheet"> 
+    <title>WordDoc</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag     'application', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon(init: true) %>
+  </head>
+
+  <body>
+    <div class="download-content">
+      <div class="download-image"><%= image_tag @download_src, class: 'cav-img' %></div>
+      <div class="download-text"></div>
+      <div class="download-logo"><%= image_tag(@logo_src, class: 'cav-logo', width: '100px', height: '100px') unless @logo_src == "undefined" %></div>
+    </div>
+  </body>
+</html>

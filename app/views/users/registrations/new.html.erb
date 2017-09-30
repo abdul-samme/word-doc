@@ -1,0 +1,66 @@
+<div class="container">
+      <div class= "row">
+      <div class= "col-md-3" >
+        <h2> SignUp  </h2>
+       </div>
+      <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                          <div class="panel-title "></div>
+                      </div>
+                      <div class="panel-body" >
+                          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+                              <div id="signupalert" style="display:<%= resource.errors.present? ? "block" : "none" %>" class="alert alert-danger">
+                                  <p><%= devise_error_messages! %></p>
+                                  <span></span>
+                              </div>
+
+
+
+                              <div class="form-group">
+                                  <label for="email" class="col-md-3 control-label">Email</label>
+                                  <div class="col-md-9">
+                                     <%=f.email_field :email,class:"form-control",placeholder:"Email Address", autofocus: true %>
+                                  </div>
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="firstname" class="col-md-3 control-label">First Name</label>
+                                  <div class="col-md-9">
+                                       <%=f.text_field :first_name,class:"form-control",placeholder:"First Name"%>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                                  <div class="col-md-9">
+                                      <%=f.text_field :last_name,class:"form-control",placeholder:"First Name"%>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="col-md-3 control-label">Password</label>
+                                  <div class="col-md-9">
+                                    <%= f.password_field :password,class:"form-control", autocomplete: "off" %>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <!-- Button -->
+                                  <div class="col-md-offset-3 col-md-9">
+                                      <%= f.submit "Sign up",id:"btn-signup", class: "btn btn-info" %>
+                                        <i class="icon-hand-right"></i>
+                                  </div>
+                              </div>
+
+                           
+
+
+
+
+                       </div>
+                  </div>
+
+          <%end%>
+
+        </div>
+       </div>
+  </div>

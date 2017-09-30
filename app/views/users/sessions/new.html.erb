@@ -1,0 +1,81 @@
+<div class="container">
+      <div class= "row">
+      <div class= "col-md-3" >
+        <h2> SignIn </h2>
+       </div>
+<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title"></div>
+            </div>
+
+            <div style="padding-top:30px" class="panel-body" >
+
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user-o"></i></span>
+                              <%= f.email_field :email,class: "form-control",placeholder:"email", autofocus: true%>
+                            </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <%= f.password_field :password,class:"form-control",placeholder:"password", autocomplete: "off" %>
+                            </div>
+
+
+
+                    <div class="input-group">
+                              <div class="checkbox">
+                              <% if devise_mapping.rememberable? -%>
+                                <div class="field">
+                                   <%= f.check_box :remember_me %>
+                                   <%= f.label :remember_me %>
+                                 </div>
+                             <% end -%>
+
+                              </div>
+                            </div>
+
+
+                        <div  class="form-group">
+                            <!-- Button -->
+
+                            <div class="col-sm-12 controls">
+                               <%= f.submit "Login", class: "btn btn-success btn-block" %>
+              <%end%>
+                           </div>
+                        </div>
+                        <div>
+                            <div data-step="1" data-intro="Hello all! :)" class="col-sm-12 introduction">
+                              <a  href="<%= user_facebook_omniauth_authorize_path%>" style="background-color:#3b5998" class="btn btn-facebook btn-block"><i class="fa fa-facebook"></i> | Login with Facebook</a>
+                              <a  href="<%= user_linkedin_omniauth_authorize_path%>" style="background-color:#60a9ce" class="btn btn-linkedin btn-block"><i class="fa fa-linkedin"></i> | Login with LinkedIn</a>
+                              <a  href="<%= user_twitter_omniauth_authorize_path%>" style="background-color:#007bb5" class="btn btn-twitter btn-block"><i class="fa fa-twitter"></i> | Login with Twitter</a>
+                              <a  href="<%= user_google_oauth2_omniauth_authorize_path%>" style="background-color:#dd4b39" class="btn btn-google-plus btn-block"><i class="fa fa-google-plus"></i> | LOGIN with Google</a>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                    Don't have an account!
+                                <a href="<%= new_user_registration_path%>">
+                                    Sign Up Here
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+</div>
+<%= javascript_tag do %>
+  
+  $(document).ready ->
+  introJs().start();
+  
+<% end %>

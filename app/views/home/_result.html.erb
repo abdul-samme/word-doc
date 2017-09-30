@@ -1,0 +1,28 @@
+<div class="result">
+  <div id="hor_line"></div>
+  <div class="vertical_line"></div>
+
+  <div id="header" class="editable">
+    <% @header.each do |header| %>
+      <div class="draggable text-item" id="header-item"><%== header %></div>
+    <% end %>
+  </div>
+
+  <div id="quotation" class="editable">
+    <% @quotation.each do |quotation| %>
+      <div class="draggable text-item" id="quotation-item"><%== quotation %></div>
+    <% end %>
+  </div>
+
+  <div id="bullet" class="editable">
+    <% @bullet.each do |bullet| %>
+      <div class="draggable text-item" id="bullet-item"><%== bullet if bullet !~ /<img src=.*>/ %><br /></div>
+    <% end %>
+  </div>
+
+  <div id="bold" class="editable">
+    <% @bold.each do |bold| %>
+      <p class="draggable text-item" id="bold-item"><%== bold %></p>
+    <% end %>
+  </div>
+</div>

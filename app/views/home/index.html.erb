@@ -1,0 +1,61 @@
+<!-- make elements draggable -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
+<div class="doc-container">
+  <div class="reposition-bar">
+    <div class="btn btn-success done">Done</div>
+    <div class="btn btn-info reposition-reset">Reset</div>
+    <div class="notice">You can resize the image by dragging on the border or corner of the image</div>
+  </div>
+  <div class="msg">This is your last revision</div>
+
+  <div class="options-bar">
+    <div class="option-item option-item-content" onselectstart="return false">
+      <%= fa_icon "pencil-square-o" %><span class="option-description">Content</span>
+    </div>
+    <div class="option-item option-item-text" onselectstart="return false">
+      <%= fa_icon "header" %><span class="option-description">Text</span>
+    </div>
+    <div class="option-item option-item-images" onselectstart="return false">
+      <%= fa_icon "image" %><span class="option-description">Images</span>
+    </div>
+    <div class="option-item option-item-select" onselectstart="return false">
+      <%= fa_icon "check-square-o" %><span class="option-description">Select</span>
+    </div>
+    <div class="option-item option-item-crop" onselectstart="return false">
+      <%= fa_icon "crop" %><span class="option-description">Crop</span>
+    </div> <!--crop alias: reposition -->
+    <div class="option-item option-item-sizes" onselectstart="return false">
+      <%= fa_icon "th-large" %><span class="option-description">Sizes</span>
+    </div>
+    <div class="option-item option-item-filters" onselectstart="return false">
+      <%= fa_icon "adjust" %><span class="option-description">Filters</span>
+    </div>
+    <div class="option-item option-item-logo" onselectstart="return false">
+      <%= fa_icon "grav" %><span class="option-description">Logo</span>
+    </div>
+    <div class="option-item option-item-clear" onselectstart="return false">
+      <%= fa_icon "trash" %><span class="option-description">Clear</span>
+    </div>
+  </div>
+  
+  <div class="image-options">
+    <%= render 'text' %>
+    <%= render 'size' %>
+    <%= render 'filter' %>
+    <div class="reload-logo"><%= render 'logo' %></div>
+  </div>
+
+  <div class="reload-gallery"><%= render 'gallery' %></div>
+
+  <div class="canvas-center">
+    <%= render 'toolbar' %>
+    <%= render 'result' %>
+    <%= render 'share_download' %>
+    <div class="crop-frame"></div>   
+    <div id="background-images"></div>
+  </div>
+
+  <div id="goTopBtn"><%= fa_icon "arrow-circle-up 3x" %></div>
+</div>
